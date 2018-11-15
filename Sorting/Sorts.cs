@@ -59,9 +59,11 @@ namespace Sorting
         {
             for (int x = 1; x < array.Length; x++)
             {
-                for (int i = x; array[i].CompareTo(array[i - 1]) < 0; i--)
+                for (int i = x; i > 0 && array[i].CompareTo(array[i - 1]) < 0; i--)
                 {
-                    var temp = array[i + 1];
+                    var temp = array[i - 1];
+                    array[i - 1] = array[i];
+                    array[i] = temp;
                 }
             }
             return array;
